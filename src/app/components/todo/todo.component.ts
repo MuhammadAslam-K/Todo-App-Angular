@@ -11,12 +11,13 @@ export class TodoComponent {
   taskArray = [{ taskName: "bath", isCompleted: true }]
 
   onSubmit(form: NgForm) {
+    console.log(form);
 
     this.taskArray.push({
       taskName: form.controls['task'].value,
       isCompleted: false
     })
-
+    form.reset()
   }
 
   delete(index: number) {
