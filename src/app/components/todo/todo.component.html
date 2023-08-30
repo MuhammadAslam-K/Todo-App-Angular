@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="heading">
+    <h2>Todo App</h2>
+  </div>
+  <hr>
+  <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+    <div class="mb-3">
+      <label class="form-label">Task</label>
+      <input type="text" class="form-control" ngModel name="task">
+      <small id="errorMessage" class="form-text text-danger">Required</small>
+    </div>
+
+    <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sn.no</th>
+        <th scope="col">Task</th>
+        <th scope="col">Complete</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskArray;index as i">
+        <td>{{i+1}}</td>
+        <td>{{task.taskName}}</td>
+        <td><input id="checkbox" type="checkbox"></td>
+        <td><button class="btn btn-danger btn-small" (click)="delete(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
